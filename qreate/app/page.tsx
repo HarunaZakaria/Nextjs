@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import QrCode from "react-qr-code";
 import QRInput from "./components/QRInput";
 import QRDisplay from "./components/QRDisplay";
@@ -12,7 +12,7 @@ export default function Home() {
   const [fgColor, setFgColor] = useState("#000000");
   const [bgColor, setBgColor] = useState("#ffffff");
   const [size, setSize] = useState(200);
-
+  const [history, setHistory] = useState<string[]>([]);
   const qrRef = useRef<HTMLDivElement>(null);
 
   //handle generate QR code
@@ -22,6 +22,7 @@ export default function Home() {
       return;
     }
     setQrValue(text.trim());
+    setHistory((prevHistory) => [text.trim(), ...prevHistory]);
     setError("");
   };
 
@@ -56,9 +57,22 @@ export default function Home() {
     URL.revokeObjectURL(url);
   };
 
+  // save history to local storage
+  useEffect(() => {
+    localStorage.setItem("history", JSON.stringify(history));
+  }, [history]);
+
+  // load history from local storage
+  useEffect(() => {
+    const savedHistory = localStorage.getItem("history");
+    if (savedHistory) {
+      setHistory(JSON.parse(savedHistory));
+    }
+  }, []);
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="bg-white  p-8 rounded-xl shadow-lg w-[450px]">
+      <div className="bg-white  p-8 rounded-xl shadow-lg w-full max-w-md ">
         <h1 className="text-3xl font-bold text-center text-green-800">
           {" "}
           QR Code Generator
@@ -127,6 +141,16 @@ export default function Home() {
             size={size}
           />
         )}
+        <div className="mt-8">
+          <h2 className="font-semibold">History</h2>
+          <ul className="mt-2 space-y-2">
+            {history.map((item, index) => (
+              <li key={index} className="rounded border p-2 bg-gray-100">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
         {qrValue && (
           <button
             onClick={downloadQRCode}
