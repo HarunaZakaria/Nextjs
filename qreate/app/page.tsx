@@ -70,6 +70,31 @@ export default function Home() {
     }
   }, []);
 
+  //share QR code
+  const shareQRCode = async () => {
+    if (!navigator.share) {
+      alert("Web Share API is not supported in your browser.");
+      return;
+    }
+
+    const svg = qrRef.current?.querySelector("svg");
+    if (!svg) return;
+
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const blob = new Blob([svgData], { type: "image/svg+xml" });
+    const file = new File([blob], "qrcode.svg", { type: "image/svg+xml" });
+
+    try {
+      await navigator.share({
+        files: [file],
+        title: "QR Code",
+        text: "Check out this QR code!",
+      });
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
+  };
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="bg-white  p-8 rounded-xl shadow-lg w-full max-w-md ">
@@ -152,13 +177,22 @@ export default function Home() {
           </ul>
         </div>
         {qrValue && (
-          <button
-            onClick={downloadQRCode}
-            disabled={!qrValue}
-            className="mt-4 w-full bg-green-500 text-white p-3  rounded-lg hover:bg-green-700"
-          >
-            {!qrValue ? "No QR code yet" : "Download QR Code"}
-          </button>
+          <div className="mt-4 flex gap-4">
+            <button
+              onClick={downloadQRCode}
+              disabled={!qrValue}
+              className="mt-4 flex-1 bg-green-500 text-white p-3  rounded-lg hover:bg-green-700"
+            >
+              {!qrValue ? "No QR code yet" : "Download QR Code"}
+            </button>
+            <button
+              disabled={!qrValue}
+              onClick={shareQRCode}
+              className="mt-4 flex-1 bg-blue-500 text-white p-3  rounded-lg hover:bg-blue-700 disabled:opacity-50 "
+            >
+              Share
+            </button>
+          </div>
         )}
       </div>
     </main>
