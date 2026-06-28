@@ -17,19 +17,33 @@ export default function Home() {
     setQrValue(text.trim());
     setError("");
   };
+  const clearQRCode = () => {
+    setText("");
+    setQrValue("");
+    setError("");
+  };
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="bg-white  p-8 rounded-xl shadow-lg w-[450px]">
         <h1 className="text-3xl font-bold"> QR Code Generator</h1>
         <div className="mt-2 text-gray-500">Generate a QR code instantly</div>
-        <QRInput text={text} setText={setText} />
+        <QRInput text={text} setText={setText} onEnter={generateQRCode} />
         {error && <p className="mt-2 text-red-600">{error}</p>}
-        <button
-          onClick={generateQRCode}
-          className="mt-4 w-full bg-blue-600 text-white p-3 px-4 rounded-lg hover:bg-blue-700"
-        >
-          Generate QR Code
-        </button>
+        <div className="mt-4 flex gap-4">
+          <button
+            onClick={generateQRCode}
+            className="flex-1 bg-green-600 text-white p-3 px-4 rounded-lg hover:bg-blue-700"
+          >
+            Generate QR Code
+          </button>
+          <button
+            onClick={clearQRCode}
+            className="flex-1 bg-red-500 text-white p-3  rounded-lg hover:bg-gray-600"
+          >
+            Clear
+          </button>
+        </div>
+
         <QRDisplay value={qrValue} />
       </div>
     </main>
