@@ -9,6 +9,9 @@ export default function Home() {
   const [text, setText] = useState("");
   const [qrValue, setQrValue] = useState("");
   const [error, setError] = useState("");
+  const [fgColor, setFgColor] = useState("#000000");
+  const [bgColor, setBgColor] = useState("#ffffff");
+  const [size, setSize] = useState(200);
 
   const qrRef = useRef<HTMLDivElement>(null);
 
@@ -27,6 +30,9 @@ export default function Home() {
     setText("");
     setQrValue("");
     setError("");
+    setFgColor("#000000");
+    setBgColor("#ffffff");
+    setSize(200);
   };
 
   //handle download QR code
@@ -53,16 +59,22 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="bg-white  p-8 rounded-xl shadow-lg w-[450px]">
-        <h1 className="text-3xl font-bold text-center text-gray-600"> QR Code Generator</h1>
-        <div className="mt-2 text-gray-500 text-center">Generate a QR code instantly</div>
+        <h1 className="text-3xl font-bold text-center text-green-800">
+          {" "}
+          QR Code Generator
+        </h1>
+        <div className="mt-2 text-gray-500 text-center">
+          Generate a QR code instantly
+        </div>
         <QRInput text={text} setText={setText} onEnter={generateQRCode} />
         {error && <p className="mt-2 text-red-600">{error}</p>}
         <div className="mt-4 flex gap-4">
           <button
             onClick={generateQRCode}
-            className="flex-1 bg-green-600 text-white p-3 px-4 rounded-lg hover:bg-blue-700"
+            disabled={!text.trim() && !qrValue}
+            className="flex-1 bg-green-600 text-white p-3 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:opacity-50"
           >
-            Generate QR Code
+            Generate
           </button>
           <button
             onClick={clearQRCode}
@@ -71,7 +83,50 @@ export default function Home() {
             Clear
           </button>
         </div>
-        {qrValue && <QRDisplay value={qrValue} ref={qrRef} />}
+        {qrValue && (
+          <div className="mt-6 space-y-4 flex">
+            <div>
+              <label className="text-sm text-gray-600">QR Color</label>
+              <input
+                type="color"
+                value={fgColor}
+                onChange={(e) => setFgColor(e.target.value)}
+                className="ml-2"
+              />
+            </div>
+            <div>
+              <label className="text-sm text-gray-600">Background Color</label>
+              <input
+                type="color"
+                value={bgColor}
+                onChange={(e) => setBgColor(e.target.value)}
+                className="ml-2"
+              />
+            </div>
+            <div>
+              <label className="text-sm text-gray-600">Size</label>
+              <select
+                value={size}
+                onChange={(e) => setSize(Number(e.target.value))}
+                className="ml-2 w-20 border rounded-lg p-1"
+              >
+                <option value={100}>Small</option>
+                <option value={200}>Medium</option>
+                <option value={300}>Large</option>
+                <option value={400}>Extra Large</option>
+              </select>
+            </div>
+          </div>
+        )}
+        {qrValue && (
+          <QRDisplay
+            value={qrValue}
+            ref={qrRef}
+            fgColor={fgColor}
+            bgColor={bgColor}
+            size={size}
+          />
+        )}
         {qrValue && (
           <button
             onClick={downloadQRCode}

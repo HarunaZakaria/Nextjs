@@ -4,12 +4,20 @@ import { forwardRef } from "react";
 
 type QRDisplayProps = {
   value: string;
+  fgColor: string;
+  bgColor: string;
+  size: number;
 };
 const QRDisplay = forwardRef<HTMLDivElement, QRDisplayProps>(
-  ({ value }, ref) => {
+  ({ value, fgColor, bgColor, size }, ref) => {
     return (
-      <div className="mt-8 flex justify-center">
-        <QrCode value={value || "Enter a URL to generate a QR code"} />
+      <div className="mt-8 flex justify-center items-center" ref={ref}>
+        <QrCode
+          value={value || "Enter a URL to generate a QR code"}
+          fgColor={fgColor}
+          bgColor={bgColor}
+          size={size}
+        />
       </div>
     );
   },
