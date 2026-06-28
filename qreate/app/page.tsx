@@ -3,10 +3,14 @@ import { useState } from "react";
 import QrCode from "react-qr-code";
 import QRInput from "./components/QRInput";
 import QRDisplay from "./components/QRDisplay";
+import { useRef } from "react";
+
 export default function Home() {
   const [text, setText] = useState("");
   const [qrValue, setQrValue] = useState("");
   const [error, setError] = useState("");
+
+  const qrRef = useRef<HTMLDivElement>(null);
 
   //handle generate QR code
   const generateQRCode = () => {
@@ -17,10 +21,27 @@ export default function Home() {
     setQrValue(text.trim());
     setError("");
   };
+
+  //handle clear QR code
   const clearQRCode = () => {
     setText("");
     setQrValue("");
     setError("");
+  };
+  //handle download QR code
+  const downloadQRCode = () => {
+    const svg = qrRef.current?.querySelector("svg");
+    if (!svg) return;
+    const svgData = new XMLSerializer().serializeToString(svg);
+    const svgBlob = new Blob([svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+    const url = URL.createObjectURL(svgBlob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "qrcode.svg";
+    link.click();
+    URL.revokeObjectURL(url);
   };
   return (
     <main className="flex min-h-screen items-center justify-center bg-gray-100">
@@ -43,8 +64,14 @@ export default function Home() {
             Clear
           </button>
         </div>
-
-        <QRDisplay value={qrValue} />
+        <QRDisplay value={qrValue} ref={qrRef} />
+        <button
+          onClick={downloadQRCode}
+          disabled={!qrValue}
+          className="mt-4 w-full bg-green-500 text-white p-3  rounded-lg hover:bg-green-700"
+        >
+          {!qrValue ? "No QR code yet" : "Download QR Code"}
+        </button>
       </div>
     </main>
   );
