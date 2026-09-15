@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
+  // initiate a delay
+  await new Promise((resolve) => setInterval(resolve, 3000));
   const res = await fetch("http://localhost:4000/tickets");
   const tickets = await res.json();
   return tickets.map((ticket) => ({
@@ -11,7 +13,8 @@ export async function generateStaticParams() {
 }
 export default async function TicketDetails({ params }) {
   const { id } = await params;
-
+  //initiate a delay
+  await new Promise((resolve) => setInterval(resolve, 3000));
   const res = await fetch(`http://localhost:4000/tickets/${id}`, {
     next: {
       validate: 60,

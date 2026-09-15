@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { resolve } from "path";
 async function GetTickets() {
+  //initiate a delay
+  await new Promise((resolve) => setInterval(resolve, 3000));
   const res = await fetch("http://localhost:4000/tickets", {
     next: {
       validate: 0,
