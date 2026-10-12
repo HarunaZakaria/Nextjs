@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { resolve } from "path";
+import ticketData from "../data";
 async function GetTickets() {
   //initiate a delay
   await new Promise((resolve) => setInterval(resolve, 3000));
@@ -11,8 +12,8 @@ async function GetTickets() {
   return res.json();
 }
 
-export default async function TicketsList() {
-  const tickets = await GetTickets();
+export default function TicketsList() {
+  const tickets = ticketData;
   return (
     <>
       {tickets.map((ticket) => (
