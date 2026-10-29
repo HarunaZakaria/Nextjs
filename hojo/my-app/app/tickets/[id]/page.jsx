@@ -1,46 +1,43 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTicketById, getTicketIds } from "../../lib/tickets";
 
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  // initiate a delay
-  await new Promise((resolve) => setInterval(resolve, 3000));
-  const res = await fetch("http://localhost:4000/tickets");
-  const tickets = await res.json();
-  return tickets.map((ticket) => ({
-    id: ticket.id,
-  }));
+  return getTicketIds();
 }
+
 export default async function TicketDetails({ params }) {
   const { id } = await params;
-  //initiate a delay
-  await new Promise((resolve) => setInterval(resolve, 3000));
-  const res = await fetch(`http://localhost:4000/tickets/${id}`, {
-    next: {
-      validate: 60,
-    },
-  });
+  const ticket = await getTicketById(id);
 
-  if (!res.ok) {
+  if (!ticket) {
     notFound();
   }
-  const ticket = await res.json();
 
   return (
-    <>
-      <main>
-        <nav>
-          <h2>Tickets Details</h2>
-        </nav>
-        <div className="card">
-          <h3>{ticket.title}</h3>
-          <small>Created by {ticket.user_email}</small>
-          <p>{ticket.body}</p>
-          <div className={`pill ${ticket.priority}`}>
-            {ticket.priority} Priority
-          </div>
+    <main className="page-shell details-shell">
+      <header className="page-header details-header">
+        <div>
+          <p className="eyebrow">Ticket details</p>
+          <h2>{ticket.title}</h2>
         </div>
-      </main>
-    </>
+        <Link href="/tickets" className="btn-secondary">
+          Back to tickets
+        </Link>
+      </header>
+
+      <article className="card detail-card">
+        <div className="detail-meta">
+          <span className={`pill ${ticket.priority}`}>
+            {ticket.priority} priority
+          </span>
+          <small>Created by {ticket.user_email}</small>
+        </div>
+
+        <p className="detail-body">{ticket.body}</p>
+      </article>
+    </main>
   );
 }

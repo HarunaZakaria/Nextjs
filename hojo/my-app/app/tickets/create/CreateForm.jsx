@@ -27,42 +27,49 @@ export default function CreateForm() {
       body: JSON.stringify(ticket),
     });
 
-    if (res.status === 201) {
-      router.refresh()
+    setIsLoading(false);
+
+    if (res.ok) {
+      router.refresh();
       router.push("/tickets");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-1/2">
+    <form onSubmit={handleSubmit} className="ticket-form">
       <label>
-        <span>Title:</span>
+        <span>Title</span>
         <input
           required
           type="text"
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          placeholder="Add a clear ticket title"
         />
       </label>
+
       <label>
-        <span>Body:</span>
+        <span>Body</span>
         <textarea
           required
           onChange={(e) => setBody(e.target.value)}
           value={body}
+          rows={6}
+          placeholder="Describe the issue or request..."
         />
       </label>
+
       <label>
-        <span>Priority:</span>
+        <span>Priority</span>
         <select onChange={(e) => setPriority(e.target.value)} value={priority}>
           <option value="low">Low Priority</option>
           <option value="medium">Medium Priority</option>
           <option value="high">High Priority</option>
         </select>
       </label>
+
       <button className="btn-primary" disabled={isLoading}>
-        {isLoading && <span>Adding...</span>}
-        {!isLoading && <span>Add Ticket</span>}
+        {isLoading ? "Adding..." : "Add ticket"}
       </button>
     </form>
   );

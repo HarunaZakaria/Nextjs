@@ -1,18 +1,21 @@
+import Link from "next/link";
 import React, { Suspense } from "react";
 import TicketsList from "./TicketList";
 import Loading from "../Loading";
 
 function Tickets() {
   return (
-    <main>
-      <nav>
+    <main className="page-shell">
+      <header className="page-header">
         <div>
-          <h2>Tickets</h2>
-          <p>
-            <small>Currently open tickets</small>
-          </p>
+          <p className="eyebrow">Operations</p>
+          <h2>Open tickets</h2>
         </div>
-      </nav>
+        <Link href="/tickets/create" className="btn-primary">
+          Create ticket
+        </Link>
+      </header>
+
       <Suspense fallback={<Loading />}>
         <TicketsList />
       </Suspense>
