@@ -51,6 +51,27 @@ const galleryImages = [
   },
 ];
 
+const staff = [
+  {
+    name: "Toahiru Abdul Rahaman",
+    role: "Headteacher",
+    description:
+      "Leads the school community and supports a positive environment for learning.",
+  },
+  {
+    name: "Alhassan Yussif",
+    role: "Assistant Headteacher",
+    description:
+      "Supports school leadership and helps pupils and staff thrive each day.",
+  },
+  {
+    name: "Raphael",
+    role: "Sports Coordinator",
+    description:
+      "Encourages pupils to take part, stay active, and learn through sport.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -104,7 +125,7 @@ export default function Home() {
               </p>
             </div>
             <div className="approach-points">
-              <article               className="approach-point reveal-on-scroll">
+              <article className="approach-point reveal-on-scroll">
                 <span className="approach-number">01</span>
                 <div>
                   <h3>Strong foundations</h3>
@@ -114,7 +135,7 @@ export default function Home() {
                   </p>
                 </div>
               </article>
-              <article               className="approach-point reveal-on-scroll">
+              <article className="approach-point reveal-on-scroll">
                 <span className="approach-number">02</span>
                 <div>
                   <h3>Learning together</h3>
@@ -124,7 +145,7 @@ export default function Home() {
                   </p>
                 </div>
               </article>
-              <article               className="approach-point reveal-on-scroll">
+              <article className="approach-point reveal-on-scroll">
                 <span className="approach-number">03</span>
                 <div>
                   <h3>Growing with care</h3>
@@ -196,6 +217,80 @@ export default function Home() {
               sizes="(max-width: 760px) 100vw, 50vw"
             />
             <span className="campus-sticker">A place to belong</span>
+          </div>
+        </section>
+
+        <section
+          className="management-section"
+          id="management"
+          aria-labelledby="management-title"
+        >
+          <div className="section-wrap">
+            <div className="section-title-row management-heading reveal-on-scroll">
+              <div>
+                <p className="eyebrow">The people behind our school</p>
+                <h2 id="management-title">Meet our team.</h2>
+              </div>
+              <p className="section-description">
+                Dedicated school leaders and staff help make Diare Primary B a
+                welcoming place to learn, grow, and belong.
+              </p>
+            </div>
+            <div className="management-layout">
+              <div className="staff-list">
+                {staff.map((member, index) => (
+                  <article
+                    className="staff-card reveal-on-scroll"
+                    key={member.name}
+                  >
+                    <span className="staff-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="staff-details">
+                      <p className="staff-role">{member.role}</p>
+                      <h3>{member.name}</h3>
+                      <p className="staff-description">{member.description}</p>
+                    </div>
+                    <span className="staff-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </article>
+                ))}
+              </div>
+              <div className="management-gallery reveal-on-scroll">
+                <div className="management-photo management-photo--feature">
+                  <Image
+                    src="/images (6).jpg"
+                    alt="Pupils working together in a classroom at Diare Primary B"
+                    width={516}
+                    height={387}
+                    sizes="(max-width: 760px) 100vw, 36vw"
+                  />
+                </div>
+                <div className="management-photo">
+                  <Image
+                    src="/images (2).jpg"
+                    alt="Pupils gathered outside as part of school life"
+                    width={549}
+                    height={364}
+                    sizes="(max-width: 760px) 50vw, 20vw"
+                  />
+                </div>
+                <div className="management-photo">
+                  <Image
+                    src="/images (8).jpg"
+                    alt="A teacher helping a pupil during a lesson"
+                    width={576}
+                    height={384}
+                    sizes="(max-width: 760px) 50vw, 20vw"
+                  />
+                </div>
+                <p className="management-photo-note">
+                  A glimpse of our school community. Photos show school life,
+                  not individual staff portraits.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
