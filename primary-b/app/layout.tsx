@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Diare Primary B | Learning Together",
+  title: "Diare Primary B | Government Primary School",
   description:
-    "Discover Diare Primary B, a welcoming school community where young learners build confidence, explore their potential, and grow together.",
+    "Diare Primary B is a government primary school serving its community through classroom learning, pupil support, and shared school life.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -15,7 +15,7 @@ export default function NavBar() {
           </span>
           <span className="brand-name">
             <strong>Diare Primary B</strong>
-            <small>Learning together</small>
+            <small>Government primary school</small>
           </span>
         </a>
         <button
@@ -35,10 +35,10 @@ export default function NavBar() {
         />
         <a
           className="nav-contact"
-          href="#contact"
+          href="#school"
           onClick={() => setMenuOpen(false)}
         >
-          Get in touch <span aria-hidden="true">↗</span>
+          Our school <span aria-hidden="true">↗</span>
         </a>
       </nav>
     </header>

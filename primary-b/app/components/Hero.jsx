@@ -17,22 +17,23 @@ export default function Hero() {
         <div className="hero-copy">
           <p className="eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
-            Welcome to Diare Primary B
+            Government primary school · Diare Primary B
           </p>
           <h1>
-            A bright start
+            Learning together
             <br />
-            for a <em>brighter</em>
+            for every
             <br />
-            tomorrow.
+            <em>child.</em>
           </h1>
           <p className="hero-description">
-            A caring school community where young minds find their confidence,
-            discover their potential, and learn to shape their future.
+            Diare Primary B is a government school serving our community.
+            Pupils learn together, build essential skills, and prepare for
+            their next steps.
           </p>
           <div className="hero-actions">
             <a className="button button--green" href="#about">
-              Discover our school <span aria-hidden="true">↗</span>
+              About our school <span aria-hidden="true">↗</span>
             </a>
             <a className="hero-secondary-link" href="#learning">
               Explore learning <span aria-hidden="true">↓</span>
@@ -43,8 +44,8 @@ export default function Hero() {
               ✳
             </span>
             <p>
-              <strong>Big dreams begin here.</strong>
-              <span>Growing together, one day at a time.</span>
+              <strong>Learning is a shared effort.</strong>
+              <span>Pupils, teachers, families, and community.</span>
             </p>
           </div>
         </div>

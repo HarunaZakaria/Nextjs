@@ -8,7 +8,7 @@ const programs = [
     number: "01",
     title: "Foundations for learning",
     description:
-      "Build confidence in literacy, numeracy, and the everyday skills that help young learners thrive.",
+      "Daily classroom lessons help pupils strengthen reading, writing, numeracy, and other essential skills.",
     image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.26%20AM%20(1).jpeg",
     alt: "Pupils working in a classroom at Diare Primary B",
     className: "program-card--green",
@@ -17,7 +17,7 @@ const programs = [
     number: "02",
     title: "Curiosity in the classroom",
     description:
-      "Encourage children to ask questions, share ideas, and discover new ways to understand the world.",
+      "Pupils take part, ask questions, and share ideas as they learn alongside their classmates.",
     image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.27%20AM%20(1).jpeg",
     alt: "A pupil solving a problem at the classroom whiteboard",
     className: "program-card--yellow",
@@ -26,7 +26,7 @@ const programs = [
     number: "03",
     title: "Character and community",
     description:
-      "Create a welcoming place where respect, friendship, and a sense of belonging grow every day.",
+      "Respect, responsibility, and cooperation help make our school a supportive place to learn.",
     image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.28%20AM.jpeg",
     alt: "A teacher with pupils at Diare Primary B",
     className: "program-card--peach",
@@ -94,22 +94,21 @@ export default function Home() {
               <span className="caption-mark" aria-hidden="true">
                 ✳
               </span>
-              <span>Small steps. Bright futures.</span>
+              <span>Learning and growing together.</span>
             </div>
           </div>
           <div className="welcome-copy reveal-on-scroll">
-            <p className="eyebrow">A warm welcome</p>
+            <p className="eyebrow">A government school for our community</p>
             <h2>
-              Every child deserves a place to <em>shine.</em>
+              A strong start in learning belongs to <em>every child.</em>
             </h2>
             <p className="section-description">
-              At Diare Primary B, learning is about more than what is written
-              on the board. It is about building confidence, finding
-              friendships, and giving every child the support to discover what
-              they can do.
+              Diare Primary B is part of public education and serves pupils in
+              our community. Our teachers support children as they build
+              knowledge, develop skills, and learn alongside one another.
             </p>
             <a className="text-link" href="#our-approach">
-              Get to know our school <span aria-hidden="true">↗</span>
+              How we support learning <span aria-hidden="true">↗</span>
             </a>
           </div>
         </section>
@@ -117,11 +116,11 @@ export default function Home() {
         <section className="approach-section" id="our-approach">
           <div className="section-wrap approach-inner">
             <div className="section-heading reveal-on-scroll">
-              <p className="eyebrow eyebrow--light">Learning with purpose</p>
-              <h2>A good start makes all the difference.</h2>
+              <p className="eyebrow eyebrow--light">Our role in public education</p>
+              <h2>A strong start opens doors.</h2>
               <p>
-                We want every school day to help children feel capable,
-                connected, and excited to learn.
+                Our teachers support pupils to learn, participate, and prepare
+                for the next stage of their education.
               </p>
             </div>
             <div className="approach-points">
@@ -130,8 +129,8 @@ export default function Home() {
                 <div>
                   <h3>Strong foundations</h3>
                   <p>
-                    A thoughtful start in reading, writing, and mathematics
-                    gives children room to grow.
+                    Regular practice in reading, writing, and mathematics helps
+                    pupils build essential skills.
                   </p>
                 </div>
               </article>
@@ -140,8 +139,8 @@ export default function Home() {
                 <div>
                   <h3>Learning together</h3>
                   <p>
-                    Every question, new idea, and shared discovery belongs in
-                    the classroom.
+                    Pupils ask questions, contribute ideas, and learn from one
+                    another in class.
                   </p>
                 </div>
               </article>
@@ -150,8 +149,8 @@ export default function Home() {
                 <div>
                   <h3>Growing with care</h3>
                   <p>
-                    Kindness, respect, and encouragement help children bring
-                    their best selves to school.
+                    Kindness, respect, and encouragement help pupils feel
+                    welcome and ready to learn.
                   </p>
                 </div>
               </article>
@@ -162,12 +161,12 @@ export default function Home() {
         <section className="programs-section section-wrap" id="learning">
           <div className="section-title-row reveal-on-scroll">
             <div>
-              <p className="eyebrow">Curiosity starts here</p>
+              <p className="eyebrow">Learning in every classroom</p>
               <h2>Room to learn. Space to grow.</h2>
             </div>
             <p className="section-description">
-              From classroom fundamentals to everyday discovery, we make space
-              for every learner to find their way.
+              From essential classroom skills to shared discovery, pupils
+              learn and grow together at Diare Primary B.
             </p>
           </div>
           <div className="program-grid">
@@ -198,14 +197,14 @@ export default function Home() {
         <section className="campus-section section-wrap" id="school">
           <div className="campus-copy reveal-on-scroll">
             <p className="eyebrow">Our school, our community</p>
-            <h2>A place where the next chapter begins.</h2>
+            <h2>A government school serving our community.</h2>
             <p className="section-description">
-              A welcoming school environment gives children room to focus,
-              feel at home, and imagine what comes next. We are proud to learn
-              and grow together as one school community.
+              Diare Primary B is a government primary school where children
+              from our community come together to learn. We work to make each
+              school day purposeful, welcoming, and supportive for pupils.
             </p>
-            <a className="button button--dark" href="#contact">
-              Connect with our school <span aria-hidden="true">↗</span>
+            <a className="button button--dark" href="#about">
+              Learn about our school <span aria-hidden="true">↗</span>
             </a>
           </div>
           <div className="campus-image-wrap reveal-on-scroll">
@@ -228,12 +227,12 @@ export default function Home() {
           <div className="section-wrap">
             <div className="section-title-row management-heading reveal-on-scroll">
               <div>
-                <p className="eyebrow">The people behind our school</p>
-                <h2 id="management-title">Meet our team.</h2>
+                <p className="eyebrow">Our school leadership and staff</p>
+                <h2 id="management-title">Meet our school team.</h2>
               </div>
               <p className="section-description">
-                Dedicated school leaders and staff help make Diare Primary B a
-                welcoming place to learn, grow, and belong.
+                Our headteacher, assistant headteacher, and staff support the
+                daily work of teaching and school life.
               </p>
             </div>
             <div className="management-layout">
@@ -277,11 +276,11 @@ export default function Home() {
             <div className="section-title-row gallery-title-row reveal-on-scroll">
               <div>
                 <p className="eyebrow">Life at Diare Primary B</p>
-                <h2>Little moments. Big memories.</h2>
+                <h2>Everyday learning and school life.</h2>
               </div>
               <p className="section-description">
-                A glimpse into the lessons, friendships, and everyday moments
-                that make school special.
+                A look at classroom lessons, friendships, and activities in our
+                school community.
               </p>
             </div>
             <div className="gallery-grid">
@@ -310,14 +309,15 @@ export default function Home() {
           <div className="contact-decoration" aria-hidden="true">
             ✳
           </div>
-          <p className="eyebrow eyebrow--light">Your next step starts here</p>
-          <h2>Let&apos;s help your child love learning.</h2>
+          <p className="eyebrow eyebrow--light">Public education, shared community</p>
+          <h2>Learning together, serving our community.</h2>
           <p>
-            Have a question about Diare Primary B? We would love to hear from
-            you. Get in touch with the school to learn more.
+            Diare Primary B is a government primary school serving pupils and
+            families in our community. Explore the school to learn about our
+            classrooms, staff, and everyday learning.
           </p>
-          <a className="button button--light" href="#top">
-            Back to the top <span aria-hidden="true">↑</span>
+          <a className="button button--light" href="#about">
+            About Diare Primary B <span aria-hidden="true">↗</span>
           </a>
         </section>
       </main>
@@ -330,12 +330,12 @@ export default function Home() {
             </span>
             <span>
               <strong>Diare Primary B</strong>
-              <small>Learning together, growing together.</small>
+              <small>Government primary school.</small>
             </span>
           </a>
-          <p>Made with care for our school community.</p>
+          <p>Serving our community through education.</p>
           <span className="footer-copyright">
-            Diare Primary B · All rights reserved
+            Diare Primary B · Government Primary School
           </span>
         </div>
       </footer>
