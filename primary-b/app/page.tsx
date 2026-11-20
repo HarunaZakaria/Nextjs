@@ -9,8 +9,8 @@ const programs = [
     title: "Foundations for learning",
     description:
       "Build confidence in literacy, numeracy, and the everyday skills that help young learners thrive.",
-    image: "/images (6).jpg",
-    alt: "A teacher supporting pupils as they work in class",
+    image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.26%20AM%20(1).jpeg",
+    alt: "Pupils working in a classroom at Diare Primary B",
     className: "program-card--green",
   },
   {
@@ -18,8 +18,8 @@ const programs = [
     title: "Curiosity in the classroom",
     description:
       "Encourage children to ask questions, share ideas, and discover new ways to understand the world.",
-    image: "/images (3).jpg",
-    alt: "Pupils learning together around a classroom tablet",
+    image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.27%20AM%20(1).jpeg",
+    alt: "A pupil solving a problem at the classroom whiteboard",
     className: "program-card--yellow",
   },
   {
@@ -27,26 +27,26 @@ const programs = [
     title: "Character and community",
     description:
       "Create a welcoming place where respect, friendship, and a sense of belonging grow every day.",
-    image: "/images (2).jpg",
-    alt: "Primary school pupils gathered outside beneath a tree",
+    image: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.28%20AM.jpeg",
+    alt: "A teacher with pupils at Diare Primary B",
     className: "program-card--peach",
   },
 ];
 
 const galleryImages = [
   {
-    src: "/images (5).jpg",
-    alt: "Pupils focused on their work during a classroom lesson",
+    src: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.26%20AM.jpeg",
+    alt: "Pupils sharing a moment together outdoors",
     className: "gallery-image--wide",
   },
   {
-    src: "/images (7).jpg",
-    alt: "Pupils learning together at their classroom desks",
+    src: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.27%20AM%20(3).jpeg",
+    alt: "Pupils studying together at their classroom desks",
     className: "",
   },
   {
-    src: "/images (8).jpg",
-    alt: "A teacher helping a pupil with classwork",
+    src: "/images/WhatsApp%20Image%202026-11-20%20at%201.47.29%20AM.jpeg",
+    alt: "Pupils together in their classroom",
     className: "",
   },
 ];
@@ -84,8 +84,8 @@ export default function Home() {
           <div className="welcome-photo-wrap reveal-on-scroll">
             <Image
               className="welcome-photo"
-              src="/images (8).jpg"
-              alt="A teacher guiding a pupil through a lesson"
+              src="/images/WhatsApp%20Image%202026-11-20%20at%201.47.15%20AM.jpeg"
+              alt="Pupils welcoming visitors to their classroom"
               width={576}
               height={384}
               sizes="(max-width: 760px) 100vw, 46vw"
@@ -210,8 +210,8 @@ export default function Home() {
           </div>
           <div className="campus-image-wrap reveal-on-scroll">
             <Image
-              src="/images (4).jpg"
-              alt="The school building in the sunshine"
+              src="/images/WhatsApp%20Image%202026-11-20%20at%201.47.27%20AM%20(2).jpeg"
+              alt="Pupils helping care for the school grounds"
               width={337}
               height={149}
               sizes="(max-width: 760px) 100vw, 50vw"
@@ -258,37 +258,15 @@ export default function Home() {
                 ))}
               </div>
               <div className="management-gallery reveal-on-scroll">
-                <div className="management-photo management-photo--feature">
+                <div className="management-photo">
                   <Image
-                    src="/images (6).jpg"
-                    alt="Pupils working together in a classroom at Diare Primary B"
+                    src="/images/staff.jpeg"
+                    alt="School staff meeting together at Diare Primary B"
                     width={516}
                     height={387}
                     sizes="(max-width: 760px) 100vw, 36vw"
                   />
                 </div>
-                <div className="management-photo">
-                  <Image
-                    src="/images (2).jpg"
-                    alt="Pupils gathered outside as part of school life"
-                    width={549}
-                    height={364}
-                    sizes="(max-width: 760px) 50vw, 20vw"
-                  />
-                </div>
-                <div className="management-photo">
-                  <Image
-                    src="/images (8).jpg"
-                    alt="A teacher helping a pupil during a lesson"
-                    width={576}
-                    height={384}
-                    sizes="(max-width: 760px) 50vw, 20vw"
-                  />
-                </div>
-                <p className="management-photo-note">
-                  A glimpse of our school community. Photos show school life,
-                  not individual staff portraits.
-                </p>
               </div>
             </div>
           </div>

@@ -1,8 +1,18 @@
-import Image from "next/image";
-
 export default function Hero() {
   return (
     <section className="hero-section" id="top">
+      <video
+        className="hero-background-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster="/images/WhatsApp%20Image%202026-11-20%20at%201.47.15%20AM.jpeg"
+        aria-hidden="true"
+      >
+        <source src="/images/school%20video.mp4" type="video/mp4" />
+      </video>
       <div className="hero-inner section-wrap">
         <div className="hero-copy">
           <p className="eyebrow">
@@ -36,28 +46,6 @@ export default function Hero() {
               <strong>Big dreams begin here.</strong>
               <span>Growing together, one day at a time.</span>
             </p>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-image-frame">
-            <Image
-              src="/images (2).jpg"
-              alt="Pupils gathered outside for a lesson at Diare Primary B"
-              width={549}
-              height={364}
-              priority
-              sizes="(max-width: 760px) 100vw, 50vw"
-            />
-          </div>
-          <div className="hero-image-accent" aria-hidden="true" />
-          <div className="hero-image-label">
-            <span className="label-sparkle" aria-hidden="true">
-              ✳
-            </span>
-            <span>Curious minds, kind hearts</span>
-          </div>
-          <div className="hero-image-index" aria-hidden="true">
-            01 <span /> 07
           </div>
         </div>
       </div>
