@@ -1,10 +1,46 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+const VIDEO_LOOP_END = 2;
+
 export default function Hero() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const restartFromBeginning = () => {
+      video.currentTime = 0;
+      video.play().catch((error) => {
+        if (error.name !== "NotAllowedError") {
+          console.error("Unable to resume the hero background video:", error);
+        }
+      });
+    };
+
+    const loopFirstTwoSeconds = () => {
+      if (video.currentTime >= VIDEO_LOOP_END) {
+        video.currentTime = 0;
+      }
+    };
+
+    video.addEventListener("timeupdate", loopFirstTwoSeconds);
+    video.addEventListener("ended", restartFromBeginning);
+
+    return () => {
+      video.removeEventListener("timeupdate", loopFirstTwoSeconds);
+      video.removeEventListener("ended", restartFromBeginning);
+    };
+  }, []);
+
   return (
     <section className="hero-section" id="top">
       <video
+        ref={videoRef}
         className="hero-background-video"
         autoPlay
-        loop
         muted
         playsInline
         preload="metadata"
